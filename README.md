@@ -9,10 +9,10 @@
 ## 目次
 - 第0章 - [心構え](doc/00-ready.md)
 - 第1章 - [こんにちは世界](doc/01-HelloWorld.md)
-- 第2章 - [変数](doc/02-Value,md)
+- 第2章 - [変数](doc/02-Value.md)
 - 第3章 - [四則演算](doc/03-Math.md)
-- 第4章 - [キーボード入力](doc/04-Input.dm)
- -  [演習問題回答](doc/04-Answer)
+- 第4章 - [キーボード入力](doc/04-Input.md)
+ -  [演習問題回答](doc/04-Answer.md)
 - 第5章 - [条件分岐]
  -  [演習問題回答]
 - 第6章 - [配列]

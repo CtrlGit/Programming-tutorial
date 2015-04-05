@@ -61,6 +61,38 @@ void main(void){
 
 の様にスペースで区切って入力することが出来る。便利だ。
 
+##Visual Studioを使用したとき、エラーが発生する現象について
+Visual Studio以外を使っている(linuxでgccとか打ち込んでる人)ならこの節を読む必要はない。
+
+もしも君がVisual Studioを使用していて、入力例のまま実行したのにエラーが出てきて悩んでいるならこの節を読んでほしい。
+
+恐らく、君が直面しているエラーはこんなのだろう：(違ったらたぶん打ち間違いです)
+
+>エラー	1	error C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+
+これは「scanfはセキュリティ上安全ではない関数(理由は近くにいる先輩が教えてくれるよ☆)なので、代わりにscanf_sという関数を使ってね」というエラーだ。
+
+つまり、君はscanfの代わりにscanf_sを使えばいいのだ。こんな感じで
+
+```c
+scanf_s("%d", &a); /* 関数の名前が違うだけで、使い方は同じ */
+```
+
+「嫌でござる！なんか_sってダサいから絶対嫌でござる！」っていう君は、こんな感じでファイルの一番上に次の文を添えておけばいい。
+
+```c
+#define _CRT_SECURE_NO_WARNINGS /* これ */
+
+#include <stdio.h>
+void main(void){ ...
+```
+
+これは「いちいち指図するんじゃねえ」とVisual Studioを叱るおまじないだ。
+
+これを書くとC4996のようなセキュリティ関連のエラーをすべて無視してくれる。
+
+しかし、Visual Studioくんにもエラーを出すなりの理由があるので、こういったプログラミングの練習以外ではあまり使わない方がいい。
+
 ##演習問題
 縦と横の長さを空白区切りで入力し、面積と周の長さを出力するプログラムを書きなさい。
 
